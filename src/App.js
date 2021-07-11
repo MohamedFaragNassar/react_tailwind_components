@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Alert from './components/Alert';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [isOpen,setIsOpen] = useState(false)
+  return <>
+     <div className="w-full">
+       <button onClick={()=>setIsOpen(true)}>show</button>
+        <Alert status="fail" message="something went wrong please try again" 
+        isOpen={isOpen} close={()=>setIsOpen(false)}  duration={3000} />
+        
+     </div>
+  </>
 }
 
 export default App;
